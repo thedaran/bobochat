@@ -1,0 +1,13 @@
+<div class="flex items-start justify-start flex-col w-full fixed left-0 top-0 h-full">
+<app-header class="w-full"></app-header>
+
+<section class="overflow-auto no-scroll scroll-smooth h-full pt-5 pb-10 flex flex-col gap-1 px-10 w-full bg-blue-500">
+  <div *ngFor="let item of messages">
+    <app-message [content]="item.text" [type]="item.destination"></app-message>
+  </div>  
+</section>
+<div class="flex h-15 items-center justify-center w-full">
+  <textarea (keypress)="sendOnEnter($event)" value="{{message}}" (input)="setmessage($event)" (resize)="title" class="pl-4 resize-none py-4 outline-amber-300 h-full w-full bg-white text-black" placeholder="写留言...." name="" id=""></textarea>
+<button (click)="sendMessage('sent')" class="cursor-pointer active:bg-yellow-400 active:text-[15.555px] bg-yellow-300 p-2 h-full w-25">发送消息</button>
+</div>
+</div>
